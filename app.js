@@ -14,10 +14,11 @@ var MongoStore = require('connect-mongo')(session);
 
 var routes = require('./routes/index');
 var userRoutes = require('./routes/user');
+var url = process.env.MONGODB_URI || 'localhost:27017/shopping';
 
 var app = express();
 
-mongoose.connect('localhost:27017/shopping');
+mongoose.connect(url);
 require('./config/passport');
 
 // view engine setup
