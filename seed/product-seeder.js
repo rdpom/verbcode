@@ -4,7 +4,9 @@ var Product = require('../models/product');
 
 var mongoose = require('mongoose');
 
-mongoose.connect('localhost:27017/shopping');
+var url = process.env.MONGODB_URI || 'localhost:27017/shopping';
+
+mongoose.connect(url);
 
 var products = [
     new Product({
